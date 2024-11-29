@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import Hero from "./Components/Hero";
 import Patners from "./Components/Patners";
 import Reason from "./Components/Reason";
+import { UpCircleFilled } from "@ant-design/icons";
 
 function App() {
   const [scrollLogo, setscrollLogo] = useState(false);
@@ -35,8 +36,8 @@ function App() {
         <Patners />
         <Book />
         {scrollLogo && (
-          <div className="fixed cursor-pointer md:bottom-32 bottom-20 md:right-12 right-2">
-            <p onClick={handleTopReturn}>logo</p>
+          <div className="fixed text-white cursor-pointer md:bottom-32 bottom-20 md:right-12 right-2">
+            <UpCircleFilled onClick={handleTopReturn} style={{fontSize: 52}}/>
           </div>
         )}
       </div>
