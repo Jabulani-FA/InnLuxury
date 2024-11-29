@@ -2,7 +2,7 @@ import InnLogo from '../assets/inn-luxury-transparent.png'
 
 const Header = () => {
   return (
-    <div className="w-full sticky md:h-20 min-h-40 bg-green text-dark md:pt-px pt-10 md:flex items-center justify-around">
+    <div className="w-full md:h-20 min-h-40 bg-green text-dark md:pt-px pt-10 md:flex items-center justify-around">
         <div className='md:mb-px mb-10 flex md:justify-start justify-center'>
           <img className='w-32' src={InnLogo} alt='Inn-Luxury'/>
         </div>

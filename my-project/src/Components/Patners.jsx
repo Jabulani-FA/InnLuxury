@@ -4,7 +4,7 @@ import { PartnersList } from "./List/PartnersList";
 import { useInView, motion } from "framer-motion";
 import { containerVariant, floatVariant } from "./animation/animation";
 import { useRef } from "react";
-// import HOCComponent from "./HOC/HOCComponent";
+import HOCComponent from "./HOC/HOCComponent";
 
 const Patners = () => {
   const mainContainer = useRef(null);
@@ -34,8 +34,8 @@ const Patners = () => {
     </div>
   );
 };
-// const WrappedPatners = () => (
-//   <HOCComponent Component={<Patners/>} idName="patners"/>
-// )
+const WrappedPatners = () => (
+  <HOCComponent Component={Patners} idName="patners"/>
+)
 
-export default Patners ;
+export default WrappedPatners ;

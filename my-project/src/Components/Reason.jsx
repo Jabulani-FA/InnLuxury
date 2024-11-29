@@ -8,6 +8,7 @@ import { ReasonList } from "./List/ReasonList";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { floatVariant, containerVariant } from "./animation/animation";
+import HOCComponent from "./HOC/HOCComponent";
 
 const Reason = () => {
   const mainContainer = useRef(null);
@@ -75,6 +76,8 @@ const Reason = () => {
   );
 };
 
-export default Reason;
-// const EnhancedReason = HOCComponent(Reason, "story")
-// export default EnhancedReason;
+const WrappedReason = () => (
+  <HOCComponent Component={Reason} idName="patners"/>
+)
+
+export default WrappedReason;

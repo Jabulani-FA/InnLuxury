@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { StateList } from "./List/StateList";
 import emailjs from "@emailjs/browser"
+import HOCComponent from "./HOC/HOCComponent";
 
 const Book = () => {
   const [name, setname] = useState("");
@@ -8,25 +9,26 @@ const Book = () => {
   const [stateValue, setstateValue] = useState("");
   const [termsAgreement, settermsAgreement] = useState(false);
   const [date, setdate] = useState("");
+  const formRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email !== "" && stateValue!== "" && name !== "" && termsAgreement!== false && date !== "") {
-      const formTemplate = {
-        name: name,
-        email: email,
-        state: stateValue,
-        date: date
-      }
-      emailjs.sendForm('service_gf4yui2', 'template_jt2ud0w', formTemplate, {
-        publicKey: ""
+      // const formTemplate = {
+      //   name: name,
+      //   email: email,
+      //   state: stateValue,
+      //   date: date
+      // }
+      emailjs.sendForm('service_gf4yui2', 'template_jt2ud0w', formRef.current, {
+        publicKey: "LOWO-rYbpVa-qev4O"
       })
       .then(
         () => {
           console.log('SUCCESS!, Schedule has been sent to your mail');
         },
         (error) => {
-          console.log('FAILED...', error.text);
+          console.log('FAILED...', error);
         },
       );
     }
@@ -48,7 +50,7 @@ const Book = () => {
                 * All Fields are required
               </h3>
             </div>
-            <form className="text-black">
+            <form ref={formRef} className="text-black">
               <div className="flex-auto mt-4">
                 <div>
                   <label className="text-white text-sm" htmlFor="name">
@@ -105,6 +107,7 @@ const Book = () => {
                 <input
                   name="date"
                   type="date"
+                  min={new Date().toISOString().split('T')[0]}
                   className="h-8 px-2 rounded"
                   value={date}
                   onChange={(e) => setdate(e.target.value)}
@@ -125,7 +128,7 @@ const Book = () => {
                   I agree to the terms and conditions.
                 </label>
               </div>
-              <button onClick={() => handleSubmit()} className="bg-green w-full h-8 active:bg-tone rounded mb-8">
+              <button onClick={(e) => handleSubmit(e)} className="bg-green w-full h-8 active:bg-tone rounded mb-8">
                 Submit
               </button>
             </form>
@@ -137,4 +140,8 @@ const Book = () => {
   );
 };
 
-export default Book;
+const WrappedBook = () => (
+  <HOCComponent Component={Book} idName="book"/>
+)
+
+export default WrappedBook;

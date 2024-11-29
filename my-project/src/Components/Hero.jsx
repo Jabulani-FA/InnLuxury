@@ -12,7 +12,7 @@ const Hero = () => {
           <br /> Not all dining wares need{" "}
           <strong className="text-green">millions</strong> to purchase but we
           will definitely give <br />
-          an insight to how your decoration will be with our{" "}
+          an leading insight to how your decoration will look with our{" "}
           <strong className="text-green">simulation technology</strong>.
         </h3>
       </div>

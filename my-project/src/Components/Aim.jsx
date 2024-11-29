@@ -1,7 +1,7 @@
 import { useInView, motion } from "framer-motion";
 import { containerVariant, floatVariant } from "./animation/animation";
 import { useRef } from "react";
-// import HOCComponent from "./HOC/HOCComponent";
+import HOCComponent from "./HOC/HOCComponent";
 
 const Aim = () => {
   const aimContainer = useRef(null);
@@ -15,8 +15,22 @@ const Aim = () => {
   return (
     <div>
       <motion.div className="md:p-4 p-2">
-        <motion.h2 ref={bounceContainer} variants={floatVariant("right", "", "bounce")} animate={bounceIsInView&&"show"} initial="hidden" className="text-4xl font-bold">Our Target</motion.h2>
-        <motion.p  ref={mainContainer} variants={containerVariant("up", 0.5, 0.7)} animate={mainIsInView&&"show"} initial="hidden" className="text-white text-xl font-medium">
+        <motion.h2
+          ref={bounceContainer}
+          variants={floatVariant("right", "", "bounce")}
+          animate={bounceIsInView && "show"}
+          initial="hidden"
+          className="text-4xl font-bold"
+        >
+          Our Target
+        </motion.h2>
+        <motion.p
+          ref={mainContainer}
+          variants={containerVariant("up", 0.5, 0.7)}
+          animate={mainIsInView && "show"}
+          initial="hidden"
+          className="text-white text-xl font-medium"
+        >
           In our own way of contributing to the society. And Contributing to us
           means a very great deal.
           <br /> Starting small between 3-5 warehouses in the major cities of
@@ -31,7 +45,7 @@ const Aim = () => {
         >
           <motion.div
             initial="hidden"
-            animate={isInView&&"show"}
+            animate={isInView && "show"}
             variants={floatVariant("right", 0.8, "spring")}
             className="bg-tone w-contain min-w-40 h-36 rounded p-px"
           >
@@ -41,7 +55,7 @@ const Aim = () => {
           </motion.div>
           <motion.div
             initial="hidden"
-            animate={isInView&&"show"}
+            animate={isInView && "show"}
             variants={floatVariant("right", 1.6, "spring")}
             className="bg-tone w-contain min-w-40 h-36 rounded p-px"
           >
@@ -51,7 +65,7 @@ const Aim = () => {
           </motion.div>
           <motion.div
             initial="hidden"
-            animate={isInView&&"show"}
+            animate={isInView && "show"}
             variants={floatVariant("right", 2.4, "spring")}
             className="bg-tone w-contain min-w-40 h-36 rounded p-px"
           >
@@ -61,7 +75,7 @@ const Aim = () => {
           </motion.div>
           <motion.div
             initial="hidden"
-            animate={isInView&&"show"}
+            animate={isInView && "show"}
             variants={floatVariant("right", 3.2, "spring")}
             className="bg-tone w-contain min-w-40 h-36 rounded p-px"
           >
@@ -75,8 +89,6 @@ const Aim = () => {
   );
 };
 
-// const WrappedAim = () => (
-//   <HOCComponent Component={Aim} idName="aim"/>
-// )
+const WrappedAim = () => <HOCComponent Component={Aim} idName="aim" />;
 
-export default Aim;
+export default WrappedAim;
